@@ -37,7 +37,7 @@ mission "Wormholes 2.0"
 			label reminder
 			`	The Hai begins speaking immediately. "Good evening, Captain. I have a message to deliver."`
 			label main
-			`	"The work of a delegation cannot be done by one's self, you should be thinking of other delegates to work with. You have the privelege of selecting an auxiliary and an assistant representative. The auxiliary will have the same power as you if you cannot be reached, while the assistant does not have that privilege. There is little urgency, choose your companions wisely." The Hai turns and leaves before you can reply.`
+			`	"The work of a delegation cannot be done by one's self, you should be thinking of other delegates to work with. You have the privilege of selecting an auxiliary and an assistant representative. The auxiliary will have the same power as you if you cannot be reached, while the assistant can only handle administrative tasks and messages. There is little urgency, choose your companions wisely." The Hai turns and leaves before you can reply.`
 				decline
 	on decline
 		event "Wormholes 2.0 hold timer" 15
@@ -57,7 +57,7 @@ mission "Wormholes 2.1.1"
 		government "Free Worlds"
 	to offer
 		has "event: Wormholes 2.0 hold timer"
-		"Wormholes 2.1 defer locker" < 3
+		"Wormholes 2.1.1 defer locker" < 3
 		random < 80
 	on offer
 		conversation
@@ -68,7 +68,7 @@ mission "Wormholes 2.1.1"
 				`	(Maybe later.)`
 					defer
 			label visit
-			`	The bar is a pleasant little place in a corner of the main hall at the spaceport. It has beautiful woodwork and a cozy atmosphere with few screens or electronics at all. It is busy, but not crowded and there is room at the bar as well as the booths along the walls.`
+			`	The bar is a pleasant little place in a corner of the main hall at the spaceport. It has beautiful woodwork and a cozy atmosphere with few screens or electronics at all. It is busy, but not crowded, and there is room at the bar as well as the booths along the walls.`
 			choice
 				`	(Take a seat at the bar.)`
 					goto bar
@@ -106,11 +106,11 @@ mission "Wormholes 2.1.1"
 			label leaving
 			`	You finish up your drink and follow him out the door in a few minutes.`
 				decline
-		log "Minor People" "James Kyle" "James Kyle is a Free Worlds Navy officer looking for a job before he leaves the Navy."
+		log "Minor People" "James Kyle" "James Kyle is a Free Worlds Navy officer looking for a job when he leaves the Navy."
 	on defer
-		"Wormholes 2.1 defer locker" ++
+		"Wormholes 2.1.1 defer locker" ++
 	on decline
-		event "Wormholes 2.1 hold timer" 30
+		event "Wormholes 2.1.1 hold timer" 30
 		
 event "Wormholes 2.1 hold timer"
 
@@ -152,7 +152,7 @@ mission "Wormholes 2.1.2"
 			`	"Thanks, I've been wondering how I was going to get out of this place until you showed up. Oh, and one thing, we have to leave right now."`
 				goto accepted
 			label no
-			`	"That's unfortunate, I was hoping you would be my ticket out of here." He walks past you abruptly and is gone.`
+			`	"That's unfortunate, I was hoping you would be my ticket out of here." He walks past you abruptly and is gone. A cloaked figure moves off of a wall and follows him.`
 				decline
 			label accepted
 			choice
@@ -268,6 +268,10 @@ mission "Wormholes 2.1.2"
 	on decline
 		event "Wormholes 2.1.2 decline timer" 8
 
+event "Wormholes 2.1.4 trigger"
+
+event "Wormholes 2.1.2 decline timer"
+
 mission "Wormholes 2.1.3"
 	landing
 	name "Carry a friend to Poseidos"
@@ -287,11 +291,11 @@ mission "Wormholes 2.1.3"
 				`	"Nope, sorry."`
 					goto nope
 				`	"Okay, sounds good."`
-			`	"Great, by the way, we need to leave right now." He rushes past you into your ship as a jeep departs the spaceport building and begins to drive towards you. You are still standing in confusion on your ramp when he yanks you into your ship. "Now means now Captain."`
+			`	"Great, by the way, we need to leave right now." He rushes past you into your ship as a jeep departs the spaceport building and begins to drive towards you. You are still standing in confusion on your ramp when he yanks you into your ship. "Now means now, Captain."`
 			`	Thankfully you left the repulsors running, and you are just lifting off when a man jumps out of the jeep and starts yelling at your ship and shaking his fist. After you clear the spaceport airspace you turn to James, who has been nervously looking over your shoulder the whole time.`
 			choice
 				`	"What was that about?!"`
-			`	"Thank you for that, I needed to get out rather quickly. While I am not technically a felon, and so not subjected to be hunted down, my list of misdemeanors is hefty enough that there are individuals that have hired bounty hunters to detain me. Rest assured, I have done my legal studying, and this can't hurt you. Just say you don't know me if you get interrogated. You should probably take off now."`
+			`	"Thank you for that, I needed to get out rather quickly. While I am not technically a felon, and so not subjected to be hunted down, my list of misdemeanors is hefty enough that there are individuals that have hired bounty hunters to detain me. Rest assured, I have done my legal studying, and this can't hurt you. Just say you don't know me if you get interrogated. You should probably get into orbit now."`
 			choice
 				`	"This ought to be fun."`
 				`	"You had better be right about that."`
@@ -392,7 +396,7 @@ mission "Wormholes 2.1.3"
 		payment 20000
 		conversation
 			`	James tosses you the agreed credit chips and heads off your ship, yelling over his shoulder; "Please keep me in mind for any job, big or small, I'm rather desperate at the moment." You wonder what he will be doing with himself in the next few months. You hope it doesn't involve crime, but it probably does.`
-		event "Wormholes 2.1.2 trigger" 7
+		event "Wormholes 2.1.4 trigger" 14
 
 mission "Wormholes 2.1.4"
 	landing
@@ -599,6 +603,7 @@ mission "Wormholes 2.2.1"
 	deadline 14
 	source Zug
 	to offer
+		never
 		or
 #			has "Wormholes 2.1.5: done"
 			has "Wormholes 2.1.99: done"
