@@ -1,5 +1,3 @@
-Effective 8/26/26, I have paused development on all of my plugins. Check back in a few years.
-
 # Wormholes
 The Wormholes plugin is a content addition that allows you to serve as a galactic diplomat once you have visited every civilization (and faction).
 The perks of being a diplomat include access to a massive network of wormholes that allow access to every faction.
