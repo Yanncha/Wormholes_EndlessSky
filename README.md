@@ -3,7 +3,8 @@ The Wormholes plugin is a content addition that allows you to serve as a galacti
 The perks of being a diplomat include access to a massive network of wormholes that allow access to every faction.
 
 Currently runs Endless Sky v0.10.16
-Potential growth: diplomacy missions, a storyline in the Free Worlds where you can choose subordinates, and access to Quarg outfits and weaponry.
+
+More storylines are in development!
 
 If you want to cheat and gain access early, give yourself every First Contact condition.
 "has First Contact: Gegno: offered" -> for every race
